@@ -1,0 +1,48 @@
+---
+import { CONFIG } from "../data";
+---
+
+<section class="bg-ink text-cream px-6 py-14 lg:px-12 lg:py-20" id="contact">
+  <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
+    <div>
+      <div class="text-[11px] tracking-[0.16em] uppercase text-cream/55 mb-4">
+        04 / Contact
+      </div>
+      <h2
+        class="font-serif font-medium text-[52px] tracking-[-0.03em] mb-6 leading-[1.05] mt-0"
+      >
+        Parlons de votre projet.
+      </h2>
+      <p class="text-base leading-[1.65] text-cream/70 m-0 lg:max-w-110">
+        Contactez-nous par téléphone ou par email pour organiser un rendez-vous
+        sur place et établir discuter plus en détail de votre projet.
+      </p>
+    </div>
+    <div class="border border-cream/30 flex flex-col justify-center">
+      <a
+        href={`tel:${CONFIG.tel}`}
+        class="flex h-full items-center gap-2 px-3 md:px-6 py-5 text-cream no-underline border-b border-cream/30 hover:bg-cream/6 transition-colors duration-150 sm:gap-6 sm:px-7 sm:py-6"
+      >
+        <div class="text-xs tracking-[0.18em] uppercase text-cream/55">
+          Appeler
+        </div>
+        <div class="font-serif text-xl ml-auto">
+          {CONFIG.phone}
+        </div>
+        <div>→</div>
+      </a>
+      <a
+        href={`mailto:${CONFIG.email}`}
+        class="flex h-full items-center gap-2 px-3 md:px-6 py-5 text-cream no-underline hover:bg-cream/6 transition-colors duration-150 sm:gap-6 sm:px-7 sm:py-6"
+      >
+        <div class="text-xs tracking-[0.18em] uppercase text-cream/55">
+          Email
+        </div>
+        <div class="font-serif text-xl ml-auto whitespace-nowrap">
+          {CONFIG.email}
+        </div>
+        <div>→</div>
+      </a>
+    </div>
+  </div>
+</section>

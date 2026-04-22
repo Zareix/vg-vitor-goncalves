@@ -1,0 +1,23 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "compatibility_date": "2026-04-22",
+  "compatibility_flags": ["global_fetch_strictly_public"],
+  "name": "vg-vitor-goncalves",
+  "main": "@astrojs/cloudflare/entrypoints/server",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+  },
+  "build": {
+    "command": "bun run build",
+  },
+  "observability": {
+    "enabled": true,
+  },
+  "routes": [
+    {
+      "pattern": "vitor-goncalves.fr",
+      "custom_domain": true,
+    },
+  ],
+}

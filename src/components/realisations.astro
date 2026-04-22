@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+
+import Carousel from "../components/carousel.astro";
+
+const realisations = await getCollection("realisations");
+---
+
+<!-- RÉALISATIONS -->
+<section
+  class="px-6 py-14 border-b-[1.5px] border-ink lg:px-12 lg:py-20"
+  id="realisations"
+>
+  <div
+    class="flex flex-col gap-4 mb-8 lg:flex-row lg:justify-between lg:items-end lg:gap-0"
+  >
+    <div class="text-[11px] tracking-[0.16em] uppercase text-mute mb-3.5">
+      03 / Réalisations
+    </div>
+    <h2 class="font-serif font-medium text-[44px] tracking-[-0.02em] m-0">
+      Réalisations récentes.
+    </h2>
+  </div>
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      realisations.map((p) => (
+        <figure class="m-0 border-[1.5px] border-ink bg-cream">
+          <Carousel id={p.id} images={p.data.images} />
+          <figcaption class="px-4 py-3.5 flex justify-between border-t-[1.5px] border-ink">
+            <div>
+              <div class="font-serif text-[15px]tracking-[-0.01em]">
+                <span class="font-semibold">{p.data.city}</span> |{" "}
+                {p.data.label}
+              </div>
+              <div class="text-[10px] tracking-[0.14em] uppercase text-mute mt-0.5">
+                {p.data.category}
+              </div>
+            </div>
+          </figcaption>
+        </figure>
+      ))
+    }
+  </div>
+</section>

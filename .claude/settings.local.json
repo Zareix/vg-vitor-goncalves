@@ -1,8 +1,5 @@
 {
   "permissions": {
-    "allow": [
-      "WebFetch(domain:api.anthropic.com)",
-      "Bash(bun run *)"
-    ]
+    "allow": ["WebFetch(domain:api.anthropic.com)", "Bash(bun run *)"]
   }
 }

@@ -7,12 +7,12 @@
             [
               {
                 "fileMatch": ["*/content/realisations.json"],
-                "url": ".astro/collections/realisations.schema.json",
-              },
-            ],
-          ],
-        },
-      },
-    },
-  },
+                "url": ".astro/collections/realisations.schema.json"
+              }
+            ]
+          ]
+        }
+      }
+    }
+  }
 }

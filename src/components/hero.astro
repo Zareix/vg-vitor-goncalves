@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import heroImg from "../assets/hero.jpg";
+import { CONFIG } from "../data";
+---
+
+<section
+  class="grid grid-cols-1 border-b-[1.5px] border-ink lg:grid-cols-[1.25fr_1fr] lg:min-h-150"
+>
+  <div
+    class="px-6 pt-12 pb-10 border-b-[1.5px] border-ink lg:px-12 lg:pt-20 lg:pb-16 lg:border-b-0 lg:border-r-[1.5px]"
+  >
+    <p class="text-[11px] tracking-[0.16em] uppercase text-mute m-0 mb-7">
+      Entreprise générale du bâtiment
+    </p>
+    <h1
+      class="font-serif font-bold text-[40px] leading-[0.98] tracking-tight mt-7 mb-8 sm:text-[52px] lg:text-[84px]"
+    >
+      Maçonnerie,<br />peinture<br />et menuiserie.
+    </h1>
+    <p class="text-[17px] leading-[1.65] mb-10 text-mute lg:max-w-130">
+      <span class="font-serif">VG Vitor Gonçalves</span> est une entreprise du bâtiment
+      d'Île-de-France. Nous intervenons chez les particuliers pour la construction,
+      la rénovation et les travaux d'aménagement.
+    </p>
+    <div class="flex gap-3 flex-wrap">
+      <a
+        href={`tel:${CONFIG.tel}`}
+        class="bg-ink text-cream no-underline px-5.5 py-4 text-[13px] tracking-[0.12em] uppercase hover:opacity-85 transition-opacity duration-150"
+        >Nous appeler</a
+      >
+      <a
+        href={`mailto:${CONFIG.email}?subject=Demande%20de%20devis`}
+        class="text-ink no-underline px-5.5 py-4 text-[13px] tracking-[0.12em] uppercase border-[1.5px] border-ink hover:bg-ink hover:text-cream transition-all duration-150"
+        >Demander un devis</a
+      >
+    </div>
+  </div>
+  <div class="relative min-h-75">
+    <Image
+      src={heroImg}
+      alt="Chantier VG Vitor Gonçalves"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+  </div>
+</section>
