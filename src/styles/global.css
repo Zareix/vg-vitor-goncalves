@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+@theme {
+  --color-dossier: #ece3cf;
+  --color-cream: #eee5d1;
+  --color-ink: #201a12;
+  --color-terre: #7a2e12;
+  --color-rust: #a14a24;
+  --color-mute: #6b5a3f;
+}
+
+/*.ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  overflow: hidden;
+  width: 100%;
+}*/
+
+.carousel {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.slide {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 100%;
+  object-fit: cover;
+}
