@@ -1,0 +1,84 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  id: CollectionEntry<"realisations">["id"];
+  images: CollectionEntry<"realisations">["data"]["images"];
+};
+
+const { id, images } = Astro.props;
+---
+
+{
+  images.length === 1 ? (
+    <Image class="object-cover h-72" src={images[0]} alt={id} />
+  ) : (
+    <astro-carousel>
+      <div id={id} class="embla">
+        <div class="embla__viewport overflow-hidden relative">
+          <div class="embla__container flex">
+            {images.map((image) => (
+              <div class="embla__slide min-w-0">
+                <Image class="object-cover h-72" src={image} alt={id} />
+              </div>
+            ))}
+          </div>
+
+          <button class="embla__prev font-mono text-lg text-gray-300 size-7 bg-gray-700/30 absolute top-1/2 -translate-y-1/2 left-2 right-auto">
+            ‹
+          </button>
+          <button class="embla__next font-mono text-lg text-gray-300 size-7 bg-gray-700/30 absolute top-1/2 -translate-y-1/2 right-2 left-auto">
+            ›
+          </button>
+        </div>
+      </div>
+    </astro-carousel>
+  )
+}
+
+<script>
+  import EmblaCarousel from "embla-carousel";
+
+  class AstroCarousel extends HTMLElement {
+    connectedCallback() {
+      const wrapperNode = this.querySelector(".embla");
+      if (!wrapperNode) return;
+
+      const viewportNode =
+        wrapperNode.querySelector<HTMLElement>(".embla__viewport");
+      const prevButtonNode =
+        wrapperNode.querySelector<HTMLButtonElement>(".embla__prev");
+      const nextButtonNode =
+        wrapperNode.querySelector<HTMLButtonElement>(".embla__next");
+      if (!viewportNode || !prevButtonNode || !nextButtonNode) return;
+
+      const emblaApi = EmblaCarousel(viewportNode, {
+        loop: true,
+      });
+
+      prevButtonNode.addEventListener(
+        "click",
+        () => emblaApi.scrollPrev(),
+        false,
+      );
+      nextButtonNode.addEventListener(
+        "click",
+        () => emblaApi.scrollNext(),
+        false,
+      );
+    }
+  }
+
+  customElements.define("astro-carousel", AstroCarousel);
+</script>
+
+<style>
+  .embla__container {
+    touch-action: pan-y pinch-zoom;
+  }
+
+  .embla__slide {
+    flex: 0 0 100%;
+  }
+</style>

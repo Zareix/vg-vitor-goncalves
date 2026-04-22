@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 import heroImg from "../assets/hero.jpg";
 
 import "../styles/global.css";
+import Carousel from "../components/carousel.astro";
 
 const VG = {
   email: "contact@vitor-goncalves.fr",
@@ -13,7 +14,7 @@ const VG = {
     {
       num: ".01",
       title: "Maçonnerie générale",
-      desc: "Gros œuvre, murs, cuisine, ouvertures, dalles et fondations.",
+      desc: "Gros œuvre, murs, cuisine, ou encore salle de bain et bien plus encore.",
     },
     {
       num: ".02",
@@ -34,7 +35,6 @@ const VG = {
 };
 
 const realisations = (await getCollection("realisations"))
-  .map((entry) => entry.data);
 
 const tel = VG.phone.replace(/\s/g, "");
 ---
@@ -123,7 +123,7 @@ const tel = VG.phone.replace(/\s/g, "");
           Maçonnerie,<br />peinture<br />et menuiserie.
         </h1>
         <p class="text-[17px] leading-[1.65] mb-10 text-mute lg:max-w-130">
-          VG Vitor Gonçalves est une entreprise familiale du bâtiment basée en
+          <span class="font-serif">VG Vitor Gonçalves</span> est une entreprise du bâtiment basée en
           Île-de-France. Nous intervenons chez les particuliers pour la
           construction, la rénovation et les travaux d'aménagement.
         </p>
@@ -134,7 +134,7 @@ const tel = VG.phone.replace(/\s/g, "");
             >Nous appeler</a
           >
           <a
-            href={`mailto:${VG.email}`}
+            href={`mailto:${VG.email}?subject=Demande%20de%20devis`}
             class="text-ink no-underline px-5.5 py-4 text-[13px] tracking-[0.12em] uppercase border-[1.5px] border-ink hover:bg-ink hover:text-cream transition-all duration-150"
             >Demander un devis</a
           >
@@ -151,7 +151,7 @@ const tel = VG.phone.replace(/\s/g, "");
 
     <!-- SERVICES -->
     <section
-      class="px-6 py-14 border-b-[1.5px] border-ink lg:px-12 lg:py-20"
+      class="px-6 py-14 border-b-[1.5px] border-ink lg:px-18 lg:py-32"
       id="services"
     >
       <div
@@ -193,11 +193,7 @@ const tel = VG.phone.replace(/\s/g, "");
       id="apropos"
     >
       <div>
-        <div class="ph ph-paper w-full aspect-3/4">
-          <span class="opacity-85 text-center p-4"
-            >Portrait atelier / équipe</span
-          >
-        </div>
+        TODO
       </div>
       <div>
         <div class="text-[11px] tracking-[0.16em] uppercase text-mute mb-4">
@@ -206,7 +202,7 @@ const tel = VG.phone.replace(/\s/g, "");
         <h2
           class="font-serif font-medium text-[44px] tracking-[-0.02em] mb-7 leading-[1.05] mt-0"
         >
-          Une entreprise familiale à taille humaine.
+          Une entreprise à taille humaine.
         </h2>
         <p class="text-base leading-[1.7] mb-4">
           Vitor Gonçalves accompagne les particuliers d'Île-de-France sur leurs
@@ -258,16 +254,14 @@ const tel = VG.phone.replace(/\s/g, "");
         {
           realisations.map((p) => (
             <figure class="m-0 border-[1.5px] border-ink bg-cream">
-              <div class="carousel aspect-4/3">
-                {p.images.map((image) => <Image class="slide" src={image} alt={p.label}  />)}
-              </div>
+              <Carousel id={p.id} images={p.data.images}  />
               <figcaption class="px-4 py-3.5 flex justify-between border-t-[1.5px] border-ink">
                 <div>
                   <div class="font-serif text-[15px]tracking-[-0.01em]">
-                    <span class="font-semibold">{p.city}</span> | {p.label}
+                    <span class="font-semibold">{p.data.city}</span> | {p.data.label}
                   </div>
                   <div class="text-[10px] tracking-[0.14em] uppercase text-mute mt-0.5">
-                    {p.category}
+                    {p.data.category}
                   </div>
                 </div>
               </figcaption>
@@ -296,7 +290,7 @@ const tel = VG.phone.replace(/\s/g, "");
           </h2>
           <p class="text-base leading-[1.65] text-cream/70 m-0 lg:max-w-110">
             Contactez-nous par téléphone ou par email pour organiser un
-            rendez-vous sur place et établir un devis détaillé.
+            rendez-vous sur place et établir discuter plus en détail de votre projet.
           </p>
         </div>
         <div class="border border-cream/30 flex flex-col">
