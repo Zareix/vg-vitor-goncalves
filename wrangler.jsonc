@@ -19,5 +19,9 @@
       "pattern": "vitor-goncalves.fr",
       "custom_domain": true,
     },
+    {
+      "pattern": "www.vitor-goncalves.fr",
+      "custom_domain": true,
+    },
   ],
 }
