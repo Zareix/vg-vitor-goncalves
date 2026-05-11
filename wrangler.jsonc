@@ -8,6 +8,9 @@
     "directory": "./dist",
     "binding": "ASSETS",
   },
+  "images": {
+    "binding": "IMAGES",
+  },
   "build": {
     "command": "bun run build",
   },
