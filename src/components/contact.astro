@@ -14,12 +14,12 @@ import { CONFIG } from "../data";
         Parlons de votre projet.
       </h2>
       <p class="text-base leading-[1.65] text-cream/70 m-0 lg:max-w-110">
-        Contactez-nous par téléphone ou par email pour organiser un rendez-vous
-        sur place et établir discuter plus en détail de votre projet.
+        Contactez-nous par email pour organiser un rendez-vous sur place et
+        établir discuter plus en détail de votre projet.
       </p>
     </div>
-    <div class="border border-cream/30 flex flex-col justify-center">
-      <a
+    <div class="flex flex-col justify-center">
+      <!-- <a
         href={`tel:${CONFIG.tel}`}
         class="flex h-full items-center gap-2 px-3 md:px-6 py-5 text-cream no-underline border-b border-cream/30 hover:bg-cream/6 transition-colors duration-150 sm:gap-6 sm:px-7 sm:py-6"
       >
@@ -30,10 +30,10 @@ import { CONFIG } from "../data";
           {CONFIG.phone}
         </div>
         <div>→</div>
-      </a>
+      </a> -->
       <a
         href={`mailto:${CONFIG.email}`}
-        class="flex h-full items-center gap-2 px-3 md:px-6 py-5 text-cream no-underline hover:bg-cream/6 transition-colors duration-150 sm:gap-6 sm:px-7 sm:py-6"
+        class="flex items-center gap-2 px-3 md:px-6 py-5 border border-cream/30 text-cream no-underline hover:bg-cream/6 transition-colors duration-150 sm:gap-6 sm:px-7 sm:py-6"
       >
         <div class="text-xs tracking-[0.18em] uppercase text-cream/55">
           Email

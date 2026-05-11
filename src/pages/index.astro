@@ -28,8 +28,8 @@ import About from "../components/about.astro";
       class="bg-ink text-cream flex justify-between px-6 py-2.5 text-[11px] tracking-[0.14em] uppercase lg:px-12"
     >
       <span class="hidden md:block">Île-de-France</span>
-      <span>{CONFIG.email}</span>
-      <span>{CONFIG.phone}</span>
+      <a href={`mailto:${CONFIG.email}`}>{CONFIG.email}</a>
+      <!-- <span>{CONFIG.phone}</span> -->
     </div>
 
     <header
@@ -89,7 +89,7 @@ import About from "../components/about.astro";
     >
       <span>© VG Vitor Gonçalves</span>
       <span>Île-de-France</span>
-      <span>{CONFIG.email}</span>
+      <a href={`mailto:${CONFIG.email}`}>{CONFIG.email}</a>
     </footer>
   </body>
 </html>
