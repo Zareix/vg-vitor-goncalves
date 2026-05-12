@@ -1,56 +1,49 @@
 ---
 import { CONFIG } from "~/data";
+
+const LINKS = [
+  { name: "Services", href: "#services" },
+  { name: "À propos", href: "#apropos" },
+  { name: "Réalisations", href: "#realisations" },
+  { name: "Contact", href: "#contact" },
+];
 ---
 
 <div
-  class="bg-ink text-cream flex justify-center md:justify-between px-6 py-2.5 text-[11px] tracking-[0.14em] uppercase lg:px-12"
+  class="bg-ink text-cream flex justify-center md:justify-between px-6 py-2.5 text-xs uppercase lg:px-12"
 >
   <span class="hidden md:block">Île-de-France</span>
   <a href={`mailto:${CONFIG.email}`}>{CONFIG.email}</a>
-  <!-- <span>{CONFIG.phone}</span> -->
+  <span>{CONFIG.phone}</span>
 </div>
 <header
-  class="flex flex-col items-start gap-5 px-6 py-8 border-b-[1.5px] border-ink lg:flex-row lg:items-center lg:justify-between lg:px-12"
+  class="flex flex-col items-start gap-5 px-6 py-8 border-b border-ink lg:flex-row lg:items-center lg:justify-between lg:px-12"
 >
   <div class="flex items-center gap-4">
     <div
-      class="w-14 h-14 bg-ink text-cream flex items-center justify-center font-serif font-bold text-2xl tracking-[-0.04em] shrink-0"
+      class="w-14 h-14 bg-ink text-cream flex items-center justify-center font-serif font-bold text-2xl shrink-0"
     >
       VG
     </div>
     <div>
-      <div
-        class="font-serif font-bold text-[22px] tracking-[-0.01em] leading-none"
-      >
+      <div class="font-serif font-bold text-xl leading-none">
         Vitor Gonçalves
       </div>
-      <div class="text-[11px] tracking-[0.14em] uppercase text-mute mt-1">
+      <div class="text-xs uppercase text-mute mt-1">
         Maçonnerie · Peinture · Menuiserie
       </div>
     </div>
   </div>
-  <nav
-    class="flex gap-3.5 text-[11px] tracking-[0.12em] uppercase sm:gap-6 sm:text-xs"
-  >
-    <a
-      href="#services"
-      class="no-underline hover:text-terre transition-colors duration-150"
-      >Services</a
-    >
-    <a
-      href="#realisations"
-      class="no-underline hover:text-terre transition-colors duration-150"
-      >Réalisations</a
-    >
-    <a
-      href="#apropos"
-      class="no-underline hover:text-terre transition-colors duration-150"
-      >À propos</a
-    >
-    <a
-      href="#contact"
-      class="no-underline hover:text-terre transition-colors duration-150"
-      >Contact</a
-    >
+  <nav class="flex gap-3.5 text-sm uppercase sm:gap-6">
+    {
+      LINKS.map((link) => (
+        <a
+          href={link.href}
+          class="no-underline hover:text-terre transition-colors duration-150"
+        >
+          {link.name}
+        </a>
+      ))
+    }
   </nav>
 </header>

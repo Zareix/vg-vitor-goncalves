@@ -22,7 +22,7 @@ export const CONFIG = {
     },
   ],
   stats: [
-    { k: "Interlocuteur", v: "Unique" },
+    { k: "Expérience", v: "X années" },
     { k: "Devis", v: "Gratuit" },
     { k: "Zone", v: "Île-de-France" },
   ],

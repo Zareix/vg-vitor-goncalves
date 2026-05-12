@@ -1,7 +1,8 @@
 [
   {
     "id": "1",
-    "category": "Menuiserie/Peinture/Aménagement",
+    "label": "Studio parisien",
+    "category": "Menuiserie / Peinture / Aménagement",
     "images": [
       "../assets/realisations/1/1.jpg",
       "../assets/realisations/1/2.jpg",
@@ -10,7 +11,13 @@
       "../assets/realisations/1/5.jpg",
       "../assets/realisations/1/6.jpg"
     ],
-    "city": "Paris",
-    "label": "Studio parisien"
+    "city": "Paris"
+  },
+  {
+    "id": "2",
+    "label": "Meuble TV",
+    "category": "Menuiserie",
+    "images": ["../assets/realisations/2/1.jpg"],
+    "city": "Paris"
   }
 ]

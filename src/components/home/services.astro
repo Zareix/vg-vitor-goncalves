@@ -1,0 +1,29 @@
+---
+import { CONFIG } from "~/data";
+---
+
+<section class="px-6 py-14 border-b border-ink lg:px-18 lg:py-32" id="services">
+  <div>
+    <div class="text-sm tracking-widest uppercase text-mute mb-4">
+      01 / Services
+    </div>
+    <h2 class="font-serif font-medium text-5xl leading-tight">
+      Nos domaines d'intervention.
+    </h2>
+  </div>
+  <div class="grid grid-cols-1 border border-ink lg:grid-cols-3">
+    {
+      CONFIG.services.map((s) => (
+        <div class="p-7 not-last:border-b border-ink lg:border-b-0! lg:border-r lg:last:border-r-0">
+          <div class="mb-7">
+            <span class="font-serif text-5xl font-bold leading-none">
+              {s.num}
+            </span>
+          </div>
+          <div class="font-serif text-2xl font-semibold mb-3">{s.title}</div>
+          <p class="text-sm leading-relaxed text-mute mb-0">{s.desc}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

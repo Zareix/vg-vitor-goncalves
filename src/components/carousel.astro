@@ -3,24 +3,27 @@ import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
 type Props = {
-  id: CollectionEntry<"realisations">["id"];
   images: CollectionEntry<"realisations">["data"]["images"];
 };
 
-const { id, images } = Astro.props;
+const { images } = Astro.props;
 ---
 
 {
   images.length === 1 ? (
-    <Image class="object-cover h-72" src={images[0]} alt={id} />
+    <Image class="object-cover h-80" src={images[0]} alt="réalisations image" />
   ) : (
     <astro-carousel>
-      <div id={id} class="embla">
+      <div class="embla">
         <div class="embla__viewport overflow-hidden relative">
           <div class="embla__container flex">
-            {images.map((image) => (
+            {images.map((image, index) => (
               <div class="embla__slide min-w-0">
-                <Image class="object-cover h-72" src={image} alt={id} />
+                <Image
+                  class="object-cover h-80"
+                  src={image}
+                  alt={`réalisations image ${index + 1}`}
+                />
               </div>
             ))}
           </div>

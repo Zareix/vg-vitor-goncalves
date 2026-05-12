@@ -1,0 +1,41 @@
+---
+import { CONFIG } from "~/data";
+---
+
+<!--lg:grid-cols-[1fr_1.1fr]-->
+<section
+  class="px-6 py-14 border-b border-ink grid grid-cols-1 gap-12 lg:px-12 lg:py-32"
+  id="apropos"
+>
+  <!-- <div>
+  TODO
+</div> -->
+  <div class="max-w-4xl mx-auto">
+    <div class="text-sm tracking-widest uppercase text-mute mb-4">
+      02 / À propos
+    </div>
+    <h2 class="font-serif font-medium text-5xl mb-7 leading-tight mt-0">
+      Une entreprise à taille humaine.
+    </h2>
+    <p class="text-base leading-relaxed mb-4">
+      <span class="font-serif">Vitor Gonçalves</span> accompagne les particuliers
+      d'Île-de-France sur leurs projets de construction, rénovation et aménagement.
+      Nous intervenons directement, avec notre propre équipe, de l'étude à la livraison
+      du chantier.
+    </p>
+    <p class="text-base leading-relaxed text-mute m-0">
+      Notre engagement : un devis clair, un projet adapté à vos besoins et un
+      résultat à la hauteur de vos exigences.
+    </p>
+    <div class="grid grid-cols-1 border border-ink mt-10 sm:grid-cols-3">
+      {
+        CONFIG.stats.map((row) => (
+          <div class="px-5 py-4 not-last:border-b border-ink sm:border-b-0! sm:not-last:border-r">
+            <div class="text-xs uppercase text-mute mb-1.5">{row.k}</div>
+            <div class="font-serif text-xl font-bold">{row.v}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
